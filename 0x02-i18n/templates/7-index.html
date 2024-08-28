@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timezone Mock</title>
+</head>
+<body>
+    <p>
+        {% if username %}
+            {% if g.user.locale == 'fr' %}
+                Vous êtes connecté en tant que {{ username }}. Votre fuseau horaire est {{ g.user.timezone }}.
+            {% else %}
+                You are logged in as {{ username }}. Your timezone is {{ g.user.timezone }}.
+            {% endif %}
+        {% else %}
+            {% if g.user and g.user.locale == 'fr' %}
+                Vous n'êtes pas connecté.
+            {% else %}
+                You are not logged in.
+            {% endif %}
+        {% endif %}
+    </p>
+</body>
+</html>
